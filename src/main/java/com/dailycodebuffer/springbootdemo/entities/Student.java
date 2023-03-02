@@ -1,12 +1,16 @@
 package com.dailycodebuffer.springbootdemo.entities;
 
-
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import lombok.Data;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 
-@Data
+
+@Entity
+@Table(name = "students")
 public class Student {
 
+    @Id
     private String Id;
     private String name;
     private String email;

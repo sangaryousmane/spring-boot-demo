@@ -1,7 +1,7 @@
 package com.dailycodebuffer.springbootdemo.controller.employee;
 
 
-import com.dailycodebuffer.springbootdemo.entities.Employee;
+import com.dailycodebuffer.springbootdemo.models.Employee;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;

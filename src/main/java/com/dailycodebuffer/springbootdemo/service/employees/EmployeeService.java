@@ -1,7 +1,7 @@
 package com.dailycodebuffer.springbootdemo.service.employees;
 
-import com.dailycodebuffer.springbootdemo.entities.Admin;
-import com.dailycodebuffer.springbootdemo.entities.Employee;
+import com.dailycodebuffer.springbootdemo.models.Admin;
+import com.dailycodebuffer.springbootdemo.models.Employee;
 
 import java.util.List;
 

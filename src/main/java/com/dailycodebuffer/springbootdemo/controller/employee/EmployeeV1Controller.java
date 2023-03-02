@@ -1,8 +1,8 @@
 package com.dailycodebuffer.springbootdemo.controller.employee;
 
-import com.dailycodebuffer.springbootdemo.entities.Admin;
+import com.dailycodebuffer.springbootdemo.models.Admin;
 import com.dailycodebuffer.springbootdemo.service.employees.EmployeeServiceImpl;
-import com.dailycodebuffer.springbootdemo.entities.Employee;
+import com.dailycodebuffer.springbootdemo.models.Employee;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;

@@ -1,4 +1,4 @@
-package com.dailycodebuffer.springbootdemo.entities;
+package com.dailycodebuffer.springbootdemo.models;
 
 
 import lombok.AllArgsConstructor;

@@ -1,7 +1,7 @@
 package com.dailycodebuffer.springbootdemo.controller.student;
 
 
-import com.dailycodebuffer.springbootdemo.entities.Student;
+import com.dailycodebuffer.springbootdemo.models.Student;
 import com.dailycodebuffer.springbootdemo.service.students.StudentServiceImpl;
 import org.springframework.web.bind.annotation.*;
 
