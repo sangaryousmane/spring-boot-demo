@@ -3,6 +3,7 @@ package com.dailycodebuffer.springbootdemo.controller.student;
 
 import com.dailycodebuffer.springbootdemo.models.Student;
 import com.dailycodebuffer.springbootdemo.service.students.StudentServiceImpl;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -12,7 +13,9 @@ import java.util.List;
 public class StudentControllerV1 {
 
 
+    @Qualifier("studentServiceImpl")
     public final StudentServiceImpl studentService;
+
 
     public StudentControllerV1(StudentServiceImpl studentService) {
         this.studentService = studentService;
