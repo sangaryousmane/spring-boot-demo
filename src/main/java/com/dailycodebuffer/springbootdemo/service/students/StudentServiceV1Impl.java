@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.UUID;
 
 @Service
-public class StudentServiceImpl implements StudentService{
+public class StudentServiceV1Impl implements StudentService{
 
 
     List<Student> students=new ArrayList<>();

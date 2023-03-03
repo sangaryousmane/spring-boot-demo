@@ -2,7 +2,7 @@ package com.dailycodebuffer.springbootdemo.controller.student;
 
 
 import com.dailycodebuffer.springbootdemo.models.Student;
-import com.dailycodebuffer.springbootdemo.service.students.StudentServiceImpl;
+import com.dailycodebuffer.springbootdemo.service.students.StudentServiceV1Impl;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.*;
 
@@ -13,31 +13,31 @@ import java.util.List;
 public class StudentControllerV1 {
 
 
-    @Qualifier("studentServiceImpl")
-    public final StudentServiceImpl studentService;
+    @Qualifier("studentServiceV1Impl")
+    public final StudentServiceV1Impl studentService;
 
 
-    public StudentControllerV1(StudentServiceImpl studentService) {
+    public StudentControllerV1(StudentServiceV1Impl studentService) {
         this.studentService = studentService;
     }
 
     @GetMapping("/")
-    public List<Student> listAllStudents(){
+    public List<Student> listAllStudents() {
         return studentService.studentList();
     }
 
     @GetMapping("/{Id}")
-    public Student getStudentById(@PathVariable("Id") String Id){
+    public Student getStudentById(@PathVariable("Id") String Id) {
         return studentService.studentById(Id);
     }
 
     @PostMapping("/saveStudent")
-    public Student saveStudent(@RequestBody Student student){
+    public Student saveStudent(@RequestBody Student student) {
         return studentService.saveStudent(student);
     }
 
     @DeleteMapping("/deleteStudent/{Id}")
-    public String deleteStudent(@PathVariable("Id") String Id){
+    public String deleteStudent(@PathVariable("Id") String Id) {
         return studentService.deleteStudent(Id);
     }
 }

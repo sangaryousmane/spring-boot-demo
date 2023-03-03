@@ -14,6 +14,7 @@ import java.util.List;
 @RequestMapping("/v2/students")
 public class StudentControllerV2 {
 
+
     @Qualifier("studentServiceV2Impl")
     private final StudentServiceV2Impl studentService;
 
@@ -21,7 +22,8 @@ public class StudentControllerV2 {
         this.studentService = studentService;
     }
 
-    @GetMapping(value = "/", produces = {"application/xml", "application/json"})
+    @GetMapping(value = "/",
+            produces = {"application/xml", "application/json"})
     public List<Student> studentList() {
         return studentService.studentList();
     }
