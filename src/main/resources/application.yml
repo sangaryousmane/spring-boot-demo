@@ -7,10 +7,20 @@ spring:
     console:
       enabled: true
   datasource:
-    url: jdbc:h2:file:~/data/student_db
-    username: sa
-    password: password
+    url: jdbc:mysql://localhost:3306/practice_db
+    username: root
+    password:
+    driver-class-name: com.mysql.cj.jdbc.Driver
   jpa:
-    database-platform: org.hibernate.dialect.H2Dialect
     hibernate:
       ddl-auto: update
+    database-platform: org.hibernate.dialect.MySQLDialect
+    show-sql: true
+
+#    url: jdbc:h2:file:~/data/student_db
+#    username: sa
+#    password: password
+#  jpa:
+#    database-platform: org.hibernate.dialect.H2Dialect
+#    hibernate:
+#      ddl-auto: update

@@ -13,4 +13,5 @@ public interface StudentService {
     Student saveStudent(Student student);
     String deleteStudent(String Id);
 
+    Student updateStudent(Student student, String id);
 }

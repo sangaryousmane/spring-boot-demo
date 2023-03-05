@@ -26,7 +26,7 @@ public class StudentServiceV1Impl implements StudentService{
                 .filter(student -> student.getId().equals(Id))
                 .findFirst()
                 .orElseThrow(() -> new StudentNotFoundException(
-                        "Hey buddy! sorry, student with that Id isn't here"
+                        "Hey buddy! sorry, student with that Id isn't here "
                 ));
     }
 
@@ -49,5 +49,10 @@ public class StudentServiceV1Impl implements StudentService{
 
         students.remove(student);
         return "Student with Id "+Id + " has been deleted successfully!";
+    }
+
+    @Override
+    public Student updateStudent(Student student, String id) {
+        return student;
     }
 }
