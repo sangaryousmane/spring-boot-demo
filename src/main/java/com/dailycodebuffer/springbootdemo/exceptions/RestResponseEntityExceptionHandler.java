@@ -1,5 +1,6 @@
 package com.dailycodebuffer.springbootdemo.exceptions;
 
+import com.dailycodebuffer.springbootdemo.exceptions.customers.CustomerNotFoundException;
 import com.dailycodebuffer.springbootdemo.exceptions.employees.EmployeeNotFoundException;
 import com.dailycodebuffer.springbootdemo.exceptions.students.StudentNotFoundException;
 import org.springframework.http.HttpStatus;
@@ -37,10 +38,31 @@ public class RestResponseEntityExceptionHandler
     @ExceptionHandler(StudentNotFoundException.class)
     @ResponseBody
     @ResponseStatus(HttpStatus.NOT_FOUND)
-    public ErrorMessage studentNotFoundExceptionHandler(StudentNotFoundException exception){
+    public ErrorMessage studentNotFoundExceptionHandler(StudentNotFoundException exception) {
         return new ErrorMessage(
                 HttpStatus.NOT_FOUND,
                 exception.getMessage()
+        );
+    }
+
+    @ExceptionHandler(CustomerNotFoundException.class)
+    @ResponseBody
+    @ResponseStatus(HttpStatus.NOT_FOUND)
+    public ErrorMessage customerNotFoundExceptionHandler(CustomerNotFoundException cx){
+        return new ErrorMessage(
+                HttpStatus.NOT_FOUND,
+                cx.getMessage());
+    }
+
+
+    // TODO: this is for content negotiation
+    @ExceptionHandler(ContentMismatchException.class)
+    @ResponseBody
+    @ResponseStatus(HttpStatus.NOT_ACCEPTABLE)
+    public ErrorMessage customNegotiationExceptionHandler(ContentMismatchException cm){
+        return new ErrorMessage(
+                HttpStatus.NOT_ACCEPTABLE,
+                cm.getMessage()
         );
     }
 }

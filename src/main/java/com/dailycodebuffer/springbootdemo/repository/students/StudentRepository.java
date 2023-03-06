@@ -1,4 +1,4 @@
-package com.dailycodebuffer.springbootdemo.repository.student;
+package com.dailycodebuffer.springbootdemo.repository.students;
 
 import com.dailycodebuffer.springbootdemo.entities.StudentEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
