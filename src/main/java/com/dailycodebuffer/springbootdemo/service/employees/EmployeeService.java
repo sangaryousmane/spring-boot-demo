@@ -14,4 +14,5 @@ public interface EmployeeService {
     Admin addAdmin(Admin admin);
     Employee getEmployeeById(String Id);
     String deleteEmployeeById(String Id);
+    Employee updateEmployee(String Id, Employee employee);
 }

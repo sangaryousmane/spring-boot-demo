@@ -54,12 +54,15 @@ public class CustomerV2ServiceImpl implements CustomerService {
     @Override
     public Customer updateCustomer(String Id, Customer customer) {
         CustomerEntity customerEntity = new CustomerEntity();
+        mapCustomers(customerEntity, customer);
+        customerRepository.save(customerEntity);
+        BeanUtils.copyProperties(customerEntity, customer);
+        return customer;
+    }
+    public static void mapCustomers(CustomerEntity customerEntity, Customer customer){
         customerEntity.setFirstName(customer.getFirstName());
         customerEntity.setLastName(customer.getLastName());
         customerEntity.setEmail(customer.getEmail());
         customerEntity.setAddress(customer.getAddress());
-        customerRepository.save(customerEntity);
-        BeanUtils.copyProperties(customerEntity, customer);
-        return customer;
     }
 }

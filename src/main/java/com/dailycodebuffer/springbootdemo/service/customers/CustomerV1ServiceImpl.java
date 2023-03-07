@@ -5,10 +5,11 @@ import com.dailycodebuffer.springbootdemo.models.Customer;
 import com.dailycodebuffer.springbootdemo.repository.customers.CustomerRepository;
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
-
 import java.util.List;
 import java.util.UUID;
 import java.util.stream.Collectors;
+
+import static com.dailycodebuffer.springbootdemo.service.customers.CustomerV2ServiceImpl.mapCustomers;
 
 @Service
 public class CustomerV1ServiceImpl implements CustomerService {
@@ -68,10 +69,7 @@ public class CustomerV1ServiceImpl implements CustomerService {
     public Customer updateCustomer(String Id, Customer customer) {
         CustomerEntity customerEntity = customerRepository.findById(Id).get();
 
-        customerEntity.setFirstName(customer.getFirstName());
-        customerEntity.setLastName(customer.getLastName());
-        customerEntity.setEmail(customer.getEmail());
-        customerEntity.setAddress(customer.getAddress());
+        mapCustomers(customerEntity, customer);
         customerRepository.save(customerEntity);
         BeanUtils.copyProperties(customerEntity, customer);
         return customer;

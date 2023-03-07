@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.UUID;
 
 @Service
-public class EmployeeServiceImpl
+public class EmployeeV2ServiceImpl
         implements EmployeeService {
 
     List<Employee> employees = new ArrayList<>();
@@ -64,6 +64,11 @@ public class EmployeeServiceImpl
 
         employees.remove(employee);
         return "Employee with Id " + employee.getEmployeeId() + " has been removed successfully";
+    }
+
+    @Override
+    public Employee updateEmployee(String Id, Employee employee) {
+        return null;
     }
 
 
