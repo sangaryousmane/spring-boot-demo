@@ -5,5 +5,5 @@ as a geek and confident backend java engineer
 
 # Below is the Project structure
 
-<img width="1000" height="100" src="src/main/java/com/dailycodebuffer/entity_classes_uml.png" alt="">
+<img width="1000" height="1000" src="src/main/java/com/dailycodebuffer/entity_classes_uml.png" alt="">
 
