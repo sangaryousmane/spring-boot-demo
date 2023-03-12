@@ -1,9 +1,6 @@
 package com.dailycodebuffer.springbootdemo.controller.employee;
-
-import com.dailycodebuffer.springbootdemo.models.Admin;
-import com.dailycodebuffer.springbootdemo.service.employees.EmployeeV1ServiceImpl;
-import com.dailycodebuffer.springbootdemo.service.employees.EmployeeV2ServiceImpl;
 import com.dailycodebuffer.springbootdemo.models.Employee;
+import com.dailycodebuffer.springbootdemo.service.employees.EmployeeV1ServiceImpl;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.*;
 
@@ -19,6 +16,32 @@ public class EmployeeV1Controller {
 
     public EmployeeV1Controller(EmployeeV1ServiceImpl service) {
         this.service = service;
+    }
+
+    @GetMapping("/")
+    public List<Employee> employeeList() {
+        return service.getEmployees();
+    }
+
+    @GetMapping("/{Id}")
+    public Employee getEmployeeById(@PathVariable(name = "Id") String Id) {
+        return service.getEmployeeById(Id);
+    }
+
+    @PostMapping("/save")
+    public Employee saveStudent(@RequestBody Employee employee) {
+        return service.saveEmployee(employee);
+    }
+
+    @DeleteMapping("/delete/{Id}")
+    public String deleteStudentById(@PathVariable(name = "Id") String Id) {
+        return service.deleteEmployeeById(Id);
+    }
+
+    @PutMapping("/update")
+    public Employee updateEmployee(@RequestBody Employee employee,
+                                   @RequestParam(name = "Id") String Id) {
+        return service.updateEmployee(Id, employee);
     }
 
 

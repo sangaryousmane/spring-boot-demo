@@ -24,5 +24,14 @@ public class EmployeeEntity {
     private String department;
 
 
-
+    @Override
+    public String toString() {
+        return "EmployeeEntity{" +
+                "employeeId='" + employeeId + '\'' +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", emailId='" + emailId + '\'' +
+                ", department='" + department + '\'' +
+                '}';
+    }
 }

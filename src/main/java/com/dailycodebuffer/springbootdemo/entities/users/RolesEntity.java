@@ -4,13 +4,14 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import lombok.ToString;
 
 import java.util.Objects;
 
 @Entity(name = "RolesEntity")
 @Table(name = "roles")
-@NoArgsConstructor @Getter @Setter
+@NoArgsConstructor
+@Getter
+@Setter
 public class RolesEntity {
 
     @Id
@@ -20,7 +21,7 @@ public class RolesEntity {
     @Column(unique = true, nullable = false)
     private String name;
 
-    @Column(length =250, nullable = false)
+    @Column(length = 250, nullable = false)
     private String description;
 
     public RolesEntity(String name, String description) {
@@ -49,8 +50,7 @@ public class RolesEntity {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof RolesEntity)) return false;
-        RolesEntity entity = (RolesEntity) o;
+        if (!(o instanceof RolesEntity entity)) return false;
         return Objects.equals(id, entity.id)
                 && Objects.equals(name, entity.name) && Objects.equals(description, entity.description);
     }

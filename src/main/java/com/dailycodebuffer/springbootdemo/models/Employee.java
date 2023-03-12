@@ -9,7 +9,7 @@ import lombok.Setter;
 
 @Getter @Setter @AllArgsConstructor
 @NoArgsConstructor
-@JsonIgnoreProperties({"department", "emailId", "lastName"})
+//@JsonIgnoreProperties({"department", "emailId", "lastName"})
 public class Employee {
 
     private String employeeId;
