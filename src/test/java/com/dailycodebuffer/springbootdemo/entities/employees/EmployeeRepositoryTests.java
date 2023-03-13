@@ -2,18 +2,13 @@ package com.dailycodebuffer.springbootdemo.entities.employees;
 
 
 import com.dailycodebuffer.springbootdemo.entities.EmployeeEntity;
-import com.dailycodebuffer.springbootdemo.models.Employee;
 import com.dailycodebuffer.springbootdemo.repository.employees.EmployeeRepository;
 import org.junit.jupiter.api.Test;
-import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase.Replace;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.test.annotation.Commit;
-
-import java.util.List;
-import java.util.stream.Collectors;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -48,5 +43,11 @@ public class EmployeeRepositoryTests {
 
         System.out.println(employee);
         assertThat(employee.getEmployeeId()).isNotEmpty();
+    }
+
+    @Test
+    void testFirstName() {
+        employeeRepository.updateByFirstName("Ousmame", "sangary7683@yahoo.com");
+        assertThat(1).isNotZero();
     }
 }

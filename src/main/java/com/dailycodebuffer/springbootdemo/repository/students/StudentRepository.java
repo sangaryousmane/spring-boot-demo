@@ -1,6 +1,6 @@
 package com.dailycodebuffer.springbootdemo.repository.students;
 
-import com.dailycodebuffer.springbootdemo.entities.StudentEntity;
+import com.dailycodebuffer.springbootdemo.entities.jpa.StudentEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

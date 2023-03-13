@@ -1,7 +1,7 @@
 package com.dailycodebuffer.springbootdemo.service.students;
 
-import com.dailycodebuffer.springbootdemo.entities.StudentEntity;
-import com.dailycodebuffer.springbootdemo.models.Student;
+import com.dailycodebuffer.springbootdemo.entities.jpa.StudentEntity;
+import com.dailycodebuffer.springbootdemo.models.jpa.Student;
 import com.dailycodebuffer.springbootdemo.repository.students.StudentRepository;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;

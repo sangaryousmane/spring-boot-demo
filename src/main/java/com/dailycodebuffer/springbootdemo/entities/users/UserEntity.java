@@ -40,8 +40,12 @@ public class UserEntity {
     @ManyToMany
     @JoinTable(
             name = "users_roles",
-            joinColumns = @JoinColumn(name = "user_id"),
-            inverseJoinColumns = @JoinColumn(name = "role_id")
+            joinColumns = @JoinColumn(
+                    name = "user_id",
+                    foreignKey = @ForeignKey(name = "user_FK")),
+            inverseJoinColumns = @JoinColumn(
+                    name = "role_id",
+                    foreignKey = @ForeignKey(name = "role_FK"))
     )
     private Set<RolesEntity> roles = new HashSet<>();
 

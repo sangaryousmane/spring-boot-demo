@@ -1,4 +1,4 @@
-package com.dailycodebuffer.springbootdemo.models;
+package com.dailycodebuffer.springbootdemo.models.jpa;
 
 
 import lombok.Data;

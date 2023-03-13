@@ -1,7 +1,7 @@
 package com.dailycodebuffer.springbootdemo.controller.student;
 
 
-import com.dailycodebuffer.springbootdemo.models.Student;
+import com.dailycodebuffer.springbootdemo.models.jpa.Student;
 import com.dailycodebuffer.springbootdemo.service.students.StudentServiceV1Impl;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.*;

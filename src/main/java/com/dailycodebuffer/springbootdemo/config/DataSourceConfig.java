@@ -12,11 +12,13 @@ public class DataSourceConfig {
 
 
     @Bean
-    public DataSource getDataSource(){
+    public DataSource dataSource(){
         DataSourceBuilder<?> dataSourceBuilder= DataSourceBuilder.create();
-        dataSourceBuilder.driverClassName("com.mysql.cj.jdbc.Driver");
+        dataSourceBuilder.url("jdbc:mysql://localhost:3306/practice_db");
+        dataSourceBuilder.username("root");
         return dataSourceBuilder.build();
     }
+
 }
 //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
 //https://youtu.be/SvFXPsmh600

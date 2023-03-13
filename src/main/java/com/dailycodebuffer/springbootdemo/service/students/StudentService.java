@@ -1,7 +1,7 @@
 package com.dailycodebuffer.springbootdemo.service.students;
 
 
-import com.dailycodebuffer.springbootdemo.models.Student;
+import com.dailycodebuffer.springbootdemo.models.jpa.Student;
 
 import java.util.List;
 

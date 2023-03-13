@@ -1,6 +1,6 @@
 package com.dailycodebuffer.springbootdemo.service.students;
 
-import com.dailycodebuffer.springbootdemo.models.Student;
+import com.dailycodebuffer.springbootdemo.models.jpa.Student;
 import com.dailycodebuffer.springbootdemo.exceptions.students.StudentNotFoundException;
 import org.springframework.stereotype.Service;
 
