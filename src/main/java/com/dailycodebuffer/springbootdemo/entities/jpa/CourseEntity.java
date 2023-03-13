@@ -2,9 +2,7 @@ package com.dailycodebuffer.springbootdemo.entities.jpa;
 
 
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,6 +10,8 @@ import java.util.List;
 @Entity(name = "CourseEntity")
 @Getter @Setter @NoArgsConstructor
 @Table(name = "courses")
+@Builder @ToString
+@AllArgsConstructor
 public class CourseEntity {
 
     @Id
@@ -23,19 +23,25 @@ public class CourseEntity {
 
     @ManyToMany(mappedBy = "courses",
             targetEntity = StudentEntity.class)
+    @ToString.Exclude
     private List<StudentEntity> students=new ArrayList<>();
 
 
     @ManyToOne(
-            optional = false,
+            cascade = CascadeType.ALL,
             fetch = FetchType.LAZY,
             targetEntity = TeacherEntity.class)
     @JoinColumn(name = "teacher_id",
             referencedColumnName ="teacher_id",
             foreignKey = @ForeignKey(name = "teacher_FK")
     )
+    @ToString.Exclude
     private TeacherEntity teacher;
 
+
+    public CourseEntity(Long courseId) {
+        this.courseId = courseId;
+    }
 
     @OneToOne(mappedBy = "course", orphanRemoval = true)
     private CourseMaterialEntity courseMaterial;

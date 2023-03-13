@@ -3,6 +3,7 @@ package com.dailycodebuffer.springbootdemo.entities.jpa;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -21,7 +22,14 @@ import java.util.List;
 public class StudentEntity {
 
     @Id
-    private String Id;
+    @SequenceGenerator(
+            name = "student_sequence",
+            sequenceName = "student_sequence",
+            allocationSize = 1)
+    @GeneratedValue(
+            strategy = GenerationType.SEQUENCE,
+            generator = "student_sequence")
+    private Long Id;
     private String name;
 
     @Column(name = "student_email_address")
@@ -30,10 +38,10 @@ public class StudentEntity {
     //    @JsonIgnore
     private String password;
 
-    @OneToOne(optional = false,
-            orphanRemoval = true,
-            targetEntity = GuardianEntity.class)
-    private GuardianEntity guardian;
+
+
+    @Embedded
+    private Guardian guardian;
 
     @ManyToMany
     @JoinTable(
@@ -46,10 +54,24 @@ public class StudentEntity {
                     name = "course_id",
                     referencedColumnName = "course_id",
                     foreignKey = @ForeignKey(name = "course_FK")))
-    private List<CourseEntity> courses;
+    private List<CourseEntity> courses=new ArrayList<>();
 
+    public StudentEntity(Long id) {
+        Id = id;
+    }
 
     public void addCourse(CourseEntity course){
         this.courses.add(course);
+    }
+
+    @Override
+    public String toString() {
+        return "StudentEntity{" +
+                "Id=" + Id +
+                ", name='" + name + '\'' +
+                ", email='" + email + '\'' +
+                ", password='" + password + '\'' +
+                ", guardian=" + guardian +
+                '}';
     }
 }
