@@ -35,7 +35,7 @@ public class CourseRepositoryTests {
         teacherEntityRepository.save(teacher);
         CourseEntity course=CourseEntity.builder()
                 .title("DSA")
-                .credit(7L)
+                .credit(7)
                 .teacher(teacher)
                 .build();
 
@@ -54,7 +54,7 @@ public class CourseRepositoryTests {
                 .build();
 
         CourseEntity courseEntity=CourseEntity.builder()
-                .credit(5L)
+                .credit(5)
                 .title("Data Science")
                 .teacher(teacher)
                 .build();

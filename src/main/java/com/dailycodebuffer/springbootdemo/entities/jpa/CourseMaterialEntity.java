@@ -16,17 +16,22 @@ public class CourseMaterialEntity {
             sequenceName = "material_sequence_generator",
             allocationSize = 1)
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    private Long courseMaterialId;
+    private Integer courseMaterialId;
 
     @Column(nullable = false)
     private String url;
 
     @OneToOne(orphanRemoval = true,
-            cascade = CascadeType.ALL)
+            cascade = CascadeType.ALL,
+            fetch = FetchType.LAZY)
     @JoinColumn(
             name = "course_id",
             referencedColumnName = "course_id")
     private CourseEntity course;
+
+    public CourseMaterialEntity(Integer courseMaterialId) {
+        this.courseMaterialId = courseMaterialId;
+    }
 
     @Override
     public String toString() {

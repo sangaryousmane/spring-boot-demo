@@ -17,9 +17,9 @@ public class CourseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "course_id")
-    private Long courseId;
+    private Integer courseId;
     private String title;
-    private Long credit;
+    private Integer credit;
 
     @ManyToMany(mappedBy = "courses",
             targetEntity = StudentEntity.class)
@@ -39,11 +39,13 @@ public class CourseEntity {
     private TeacherEntity teacher;
 
 
-    public CourseEntity(Long courseId) {
+    public CourseEntity(Integer courseId) {
         this.courseId = courseId;
     }
 
-    @OneToOne(mappedBy = "course", orphanRemoval = true)
+    @OneToOne(mappedBy = "course",
+            orphanRemoval = true,
+            fetch = FetchType.LAZY)
     private CourseMaterialEntity courseMaterial;
 
     public void addStudent(StudentEntity student){

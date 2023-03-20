@@ -1,5 +1,6 @@
 package com.dailycodebuffer.springbootdemo.exceptions;
 
+import com.dailycodebuffer.springbootdemo.exceptions.backend.ProductsNotFoundException;
 import com.dailycodebuffer.springbootdemo.exceptions.customers.CustomerNotFoundException;
 import com.dailycodebuffer.springbootdemo.exceptions.employees.EmployeeNotFoundException;
 import com.dailycodebuffer.springbootdemo.exceptions.students.StudentNotFoundException;
@@ -63,6 +64,17 @@ public class RestResponseEntityExceptionHandler
         return new ErrorMessage(
                 HttpStatus.NOT_ACCEPTABLE,
                 cm.getMessage()
+        );
+    }
+
+
+    @ExceptionHandler(ProductsNotFoundException.class)
+    @ResponseBody
+    @ResponseStatus(HttpStatus.NOT_FOUND)
+    public ErrorMessage handleProductsNotFoundException(ProductsNotFoundException pe){
+        return new ErrorMessage(
+                HttpStatus.NOT_FOUND,
+                pe.getMessage()
         );
     }
 }

@@ -24,6 +24,11 @@ public class EmployeeEntity {
     private String department;
 
 
+    public EmployeeEntity(String firstName, String lastName) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+    }
+
     @Override
     public String toString() {
         return "EmployeeEntity{" +

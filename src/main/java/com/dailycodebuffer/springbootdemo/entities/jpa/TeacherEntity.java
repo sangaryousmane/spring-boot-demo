@@ -23,7 +23,7 @@ public class TeacherEntity {
             strategy = GenerationType.SEQUENCE,
             generator = "teacher_sequence")
     @Column(name = "teacher_id", nullable = false, length = 80)
-    private Long Id;
+    private Integer Id;
 
     @Column(name = "first_name", length = 80, nullable = false)
     private String firstName;
@@ -31,5 +31,7 @@ public class TeacherEntity {
     @Column(name = "last_name", length = 80, nullable = false)
     private String lastName;
 
-
+    public TeacherEntity(Integer id) {
+        Id = id;
+    }
 }

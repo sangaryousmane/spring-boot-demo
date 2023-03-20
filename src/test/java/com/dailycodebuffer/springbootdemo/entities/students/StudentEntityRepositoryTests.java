@@ -99,7 +99,7 @@ public class StudentEntityRepositoryTests {
                         .name("Zainab")
                         .email("zainab@gmail.com")
                         .password("zainab!!")
-                        .courses(List.of(new CourseEntity(5L)))
+                        .courses(List.of(new CourseEntity(5)))
                         .build();
         studentRepository.save(entity);
     }

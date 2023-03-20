@@ -4,5 +4,5 @@ import com.dailycodebuffer.springbootdemo.entities.jpa.TeacherEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface TeacherEntityRepository
-        extends JpaRepository<TeacherEntity, Long> {
+        extends JpaRepository<TeacherEntity, Integer> {
 }
