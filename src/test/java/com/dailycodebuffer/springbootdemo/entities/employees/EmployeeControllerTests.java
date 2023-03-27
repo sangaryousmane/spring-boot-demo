@@ -1,65 +1,48 @@
 package com.dailycodebuffer.springbootdemo.entities.employees;
 
-
 import com.dailycodebuffer.springbootdemo.controller.employee.EmployeeV1Controller;
-import com.dailycodebuffer.springbootdemo.exceptions.employees.EmployeeNotFoundException;
+import com.dailycodebuffer.springbootdemo.entities.EmployeeEntity;
 import com.dailycodebuffer.springbootdemo.models.Employee;
 import com.dailycodebuffer.springbootdemo.repository.employees.EmployeeRepository;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import org.apache.catalina.filters.AddDefaultCharsetFilter;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.extension.ExtendWith;
-import org.mockito.InjectMocks;
-import org.mockito.Mock;
-import org.mockito.junit.jupiter.MockitoExtension;
-import org.springframework.boot.test.json.JacksonTester;
+import com.dailycodebuffer.springbootdemo.service.employees.EmployeeV1ServiceImpl;
+import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.http.MediaType;
+import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
-import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
-@ExtendWith(MockitoExtension.class)
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+import java.util.List;
+
+import static java.lang.reflect.Array.get;
+import static org.mockito.BDDMockito.given;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+
+@SpringBootTest
+@WebMvcTest(EmployeeV1Controller.class)
 public class EmployeeControllerTests {
 
 
+    @Autowired
     private MockMvc mockMvc;
 
-
-    @Mock
-    private EmployeeRepository employeeRepository;
-
-    @InjectMocks
-    private EmployeeV1Controller employeeV1Controller;
+    @MockBean
+    private EmployeeV1ServiceImpl employeeV2ServiceImpl;
 
 
-    private JacksonTester<Employee> jacksonTester;
+    @Test
+    void givenEmployees_whenGetEmployees_thenReturnJsonArray() throws Exception {
+        List<Employee> employees = new ArrayList<>();
 
-    @BeforeEach
-    public void setUp() {
-
-        JacksonTester.initFields(this, new ObjectMapper());
-        mockMvc = MockMvcBuilders.standaloneSetup(employeeV1Controller)
-                .setControllerAdvice(new EmployeeNotFoundException())
-                .addFilters(new AddDefaultCharsetFilter())
-                .build();
-//    }
-
-
-//    @Test
-//    void testByIdWhenExist() throws Exception {
-//        EmployeeEntity entity = employeeRepository.findByEmployeeDepartment("IT");
-//        Employee employee = new Employee();
-//        BeanUtils.copyProperties(entity, employee);
-//        given(entity)
-//                .willReturn(entity);
-//
-//        MockHttpServletResponse response = mockMvc.perform(
-//                        get("/employees/IT").accept(MediaType.APPLICATION_JSON))
-//                .andReturn().getResponse();
-//
-//
-//        assertThat(response.getStatus()).isEqualTo(HttpStatus.OK.value());
-//        assertThat(response.getContentAsString()).isEqualTo(
-//                jacksonTester.write(employee).getJson()
-//        );
-
+        given(employeeV2ServiceImpl.getEmployees()).willReturn(employees);
+        mockMvc.perform(get("/v1/employees/")
+                .contentType(MediaType.APPLICATION_JSON))
+                .andExpect(status().isOk());
     }
+
 }

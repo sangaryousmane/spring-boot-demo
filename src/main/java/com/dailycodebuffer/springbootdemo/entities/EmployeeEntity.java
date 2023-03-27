@@ -3,14 +3,11 @@ package com.dailycodebuffer.springbootdemo.entities;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 @Entity(name = "EmployeeEntity")
 @NoArgsConstructor @AllArgsConstructor @Getter
-@Setter @Table(name = "employees")
+@Setter @Table(name = "employees") @Builder
 public class EmployeeEntity {
 
 

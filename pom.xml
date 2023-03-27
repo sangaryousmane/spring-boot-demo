@@ -9,14 +9,6 @@
         <version>3.0.5</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>com.example</groupId>
-    <artifactId>product-microservice</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
-    <name>product-microservice</name>
-    <description>product-microservice</description>
-
-
-
 
     <groupId>com.dailycodebuffer.spring-boot-demo</groupId>
     <artifactId>spring-boot-demo</artifactId>
@@ -82,13 +74,6 @@
             <groupId>com.fasterxml.jackson.dataformat</groupId>
             <artifactId>jackson-dataformat-xml</artifactId>
         </dependency>
-
-        <dependency>
-            <groupId>mysql</groupId>
-            <artifactId>mysql-connector-java</artifactId>
-            <scope>runtime</scope>
-        </dependency>
-
 
     </dependencies>
 
