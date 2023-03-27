@@ -1,7 +1,3 @@
-
-# Product Microservice
-
-
 # Spring boot from soup to nut including projects
 In this project, you will learn all the nitty-gritties of spring boot and walk away
 as a geek and confident backend java engineer
@@ -43,4 +39,7 @@ The library first appeared in May 2013 and is now one of the most commonly used 
 # Contact and Address
   
   I am currently based in China and you can easily reach me through twitter here: https://twitter.com/ousmanesangary2/
+
+# Microservice Architecture
+
 
