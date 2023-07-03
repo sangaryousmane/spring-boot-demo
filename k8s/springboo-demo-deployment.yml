@@ -30,7 +30,7 @@ spec:
     spec:
       containers:
         - name: springboot-demo-app
-          image: ousmane1999/spring-demo:latest
+          image: ousmane1999/spring-boot-demo:today
           ports:
             - containerPort: 8900
           env:   # Setting Enviornmental Variables
